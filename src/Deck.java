@@ -3,13 +3,13 @@ class Deck {
     private static final String[] suits = {
         "hearts", "diamonds", "clubs", "spades"
     };
-    
     private static final String[] ranks = {
         "A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"
     };
-
+    private static final int pokerHandSize = 5;
     private List<String> cards;
-    private String[] hand = new String[5];
+    
+    private String[] hand = new String[pokerHandSize];
 
     public Deck() {
         this.cards = new LinkedList<>();
@@ -39,8 +39,20 @@ class Deck {
         return String.join(" ", this.cards);
     }
     
-    public String[] getHand(List<String> cards) {//needs update
-		return hand;
+    public String[] getHand() {
+    	return hand;
+    }
+    
+    public void showHand() {
+    	for(int i = 0; i<pokerHandSize; i++){
+    		System.out.printf("%s ", this.hand[i]);
+    	}
+    }
+    
+    public void setHand(){
+    	for(int i = 0; i<pokerHandSize; i++){
+    		this.hand[i] = this.cards.get(i);
+    	}
     }
     
 }
